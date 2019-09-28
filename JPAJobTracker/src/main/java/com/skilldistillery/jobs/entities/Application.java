@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "job_application")
 public class Application {
@@ -34,11 +36,11 @@ public class Application {
 	@Column(name = "additional_notes")
 	private String additionalNotes;
 	private String status;
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy="applications")
 	private List <Technology>technologies;
 
