@@ -11,6 +11,12 @@ sourceCompatibility = '1.8'
 repositories {
 	mavenCentral()
 }
+apply plugin: 'war'
+war {
+  enabled = true
+  archiveName = "${baseName}.war"     // Our app name, as defined in settings.gradle
+  destinationDir = file("./")         // Project root directory
+}
 
 dependencies {
 	compile project (':JPAJobTracker')
@@ -19,4 +25,5 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compile 'com.google.cloud:google-cloud-bigquery:1.90.0'
+	implementation ('org.springframework.boot:spring-boot-starter-tomcat')
 }
