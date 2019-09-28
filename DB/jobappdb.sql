@@ -30,19 +30,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `job_Application`
+-- Table `job_application`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `job_Application` ;
+DROP TABLE IF EXISTS `job_application` ;
 
-CREATE TABLE IF NOT EXISTS `job_Application` (
+CREATE TABLE IF NOT EXISTS `job_application` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(500) NOT NULL,
   `link` VARCHAR(1000) NULL,
-  `date_Apply` DATE NULL,
-  `date_Interview` DATE NULL,
-  `contact_Name` VARCHAR(200) NULL,
-  `contact_Notes` TEXT NULL,
-  `additional_Notes` TEXT NULL,
+  `date_apply` DATE NULL,
+  `date_interview` DATE NULL,
+  `contact_name` VARCHAR(200) NULL,
+  `contact_notes` TEXT NULL,
+  `additional_notes` TEXT NULL,
   `status` VARCHAR(100) NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -64,17 +64,51 @@ CREATE TABLE IF NOT EXISTS `technology` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NOT NULL,
   `link` VARCHAR(500) NULL,
-  `job_Application_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_technology_job_Application1_idx` (`job_Application_id` ASC),
-  INDEX `fk_technology_user1_idx` (`user_id` ASC),
-  CONSTRAINT `fk_technology_job_Application1`
-    FOREIGN KEY (`job_Application_id`)
-    REFERENCES `job_Application` (`id`)
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `job_application_technology`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `job_application_technology` ;
+
+CREATE TABLE IF NOT EXISTS `job_application_technology` (
+  `job_application_id` INT NOT NULL,
+  `technology_id` INT NOT NULL,
+  PRIMARY KEY (`job_application_id`, `technology_id`),
+  INDEX `fk_job_application_has_technology_technology1_idx` (`technology_id` ASC),
+  INDEX `fk_job_application_has_technology_job_application1_idx` (`job_application_id` ASC),
+  CONSTRAINT `fk_job_application_has_technology_job_application1`
+    FOREIGN KEY (`job_application_id`)
+    REFERENCES `job_application` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_technology_user1`
+  CONSTRAINT `fk_job_application_has_technology_technology1`
+    FOREIGN KEY (`technology_id`)
+    REFERENCES `technology` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `technology_has_user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `technology_has_user` ;
+
+CREATE TABLE IF NOT EXISTS `technology_has_user` (
+  `technology_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`technology_id`, `user_id`),
+  INDEX `fk_technology_has_user_user1_idx` (`user_id` ASC),
+  INDEX `fk_technology_has_user_technology1_idx` (`technology_id` ASC),
+  CONSTRAINT `fk_technology_has_user_technology1`
+    FOREIGN KEY (`technology_id`)
+    REFERENCES `technology` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_technology_has_user_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
@@ -98,17 +132,18 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `jobappdb`;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`) VALUES (1, 'Mark', 'Agbayani', NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`) VALUES (2, 'Test', 'Tester', NULL);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `job_Application`
+-- Data for table `job_application`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobappdb`;
-INSERT INTO `job_Application` (`id`, `title`, `link`, `date_Apply`, `date_Interview`, `contact_Name`, `contact_Notes`, `additional_Notes`, `status`, `user_id`) VALUES (1, 'Example Job Title', 'www.google.com', '2019-09-21', NULL, 'Jimmy John', NULL, NULL, NULL, 1);
-INSERT INTO `job_Application` (`id`, `title`, `link`, `date_Apply`, `date_Interview`, `contact_Name`, `contact_Notes`, `additional_Notes`, `status`, `user_id`) VALUES (2, 'Example 2 Job Title', 'www.bing.com', '2019-09-20', '2019-09-21', NULL, NULL, NULL, NULL, 1);
+INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (1, 'Example Job Title', 'www.google.com', '2019-09-21', NULL, 'Jimmy John', NULL, NULL, NULL, 1);
+INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (2, 'Example 2 Job Title', 'www.bing.com', '2019-09-20', '2019-09-21', NULL, NULL, NULL, NULL, 1);
 
 COMMIT;
 
@@ -118,7 +153,28 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobappdb`;
-INSERT INTO `technology` (`id`, `name`, `link`, `job_Application_id`, `user_id`) VALUES (1, 'Java', 'www.google.com', 1, 1);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (1, 'Java', 'www.google.com');
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (2, 'MySQL', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `job_application_technology`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `jobappdb`;
+INSERT INTO `job_application_technology` (`job_application_id`, `technology_id`) VALUES (1, 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `technology_has_user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `jobappdb`;
+INSERT INTO `technology_has_user` (`technology_id`, `user_id`) VALUES (1, 1);
 
 COMMIT;
 
