@@ -131,7 +131,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobappdb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`) VALUES (1, 'Mark', 'Agbayani', NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`) VALUES (1, 'Mark', 'Agbayani', 'marxo2aych@gmail.com');
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`) VALUES (2, 'Test', 'Tester', NULL);
 
 COMMIT;
@@ -157,6 +157,19 @@ START TRANSACTION;
 USE `jobappdb`;
 INSERT INTO `technology` (`id`, `name`, `link`) VALUES (1, 'Java', 'www.google.com');
 INSERT INTO `technology` (`id`, `name`, `link`) VALUES (2, 'MySQL', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (3, 'JavaScript', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (4, 'Eclipse', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (5, 'Gradle', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (6, 'Atom', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (7, 'GitHub', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (8, 'MAMP', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (9, 'SPRING', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (10, 'REST API', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (11, 'Apache', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (12, 'Tomcat', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (13, 'CSS', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (14, 'HTML5', NULL);
+INSERT INTO `technology` (`id`, `name`, `link`) VALUES (15, 'Mysql Workbench', NULL);
 
 COMMIT;
 
@@ -177,6 +190,20 @@ COMMIT;
 START TRANSACTION;
 USE `jobappdb`;
 INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (1, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (2, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (3, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (4, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (5, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (6, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (7, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (8, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (9, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (10, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (11, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (12, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (13, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (14, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (15, 1);
 
 COMMIT;
 
