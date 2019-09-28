@@ -128,7 +128,49 @@ public class Application {
 	public String toString() {
 		return "Application [id=" + id + ", title=" + title + ", link=" + link + ", dateApply=" + dateApply
 				+ ", dateInterview=" + dateInterview + ", contactName=" + contactName + ", contactNotes=" + contactNotes
-				+ ", additionalNotes=" + additionalNotes + ", status=" + status + "]";
+				+ ", additionalNotes=" + additionalNotes + ", status=" + status + ", user=" + user + ", technologies="
+				+ technologies + "]";
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<Technology> getTechnologies() {
+		return technologies;
+	}
+	public void setTechnologies(List<Technology> technologies) {
+		this.technologies = technologies;
+	}
+	public Application(int id, String title, String link, Date dateApply, Date dateInterview, String contactName,
+			String contactNotes, String additionalNotes, String status, User user, List<Technology> technologies) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.link = link;
+		this.dateApply = dateApply;
+		this.dateInterview = dateInterview;
+		this.contactName = contactName;
+		this.contactNotes = contactNotes;
+		this.additionalNotes = additionalNotes;
+		this.status = status;
+		this.user = user;
+		this.technologies = technologies;
+	}
+	public Application(String title, String link, Date dateApply, Date dateInterview, String contactName,
+			String contactNotes, String additionalNotes, String status, User user, List<Technology> technologies) {
+		super();
+		this.title = title;
+		this.link = link;
+		this.dateApply = dateApply;
+		this.dateInterview = dateInterview;
+		this.contactName = contactName;
+		this.contactNotes = contactNotes;
+		this.additionalNotes = additionalNotes;
+		this.status = status;
+		this.user = user;
+		this.technologies = technologies;
 	}
 
 }

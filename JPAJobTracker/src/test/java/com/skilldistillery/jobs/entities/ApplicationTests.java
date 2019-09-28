@@ -57,6 +57,8 @@ class ApplicationTests {
 	void test2() {
 		assertEquals("Java",tech.getName());
 		assertEquals("Mark",user.getFirstName());
+		assertEquals("Java",user.getTechnologies().get(0).getName());
+		assertEquals("MySQL",app.getTechnologies().get(0).getName());
 	}
 
 }

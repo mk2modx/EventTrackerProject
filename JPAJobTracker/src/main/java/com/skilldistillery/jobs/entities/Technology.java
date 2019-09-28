@@ -73,7 +73,41 @@ public class Technology {
 
 	@Override
 	public String toString() {
-		return "Technology [id=" + id + ", name=" + name + ", link=" + link + "]";
+		return "Technology [id=" + id + ", name=" + name + ", link=" + link + ", applications=" + applications
+				+ ", users=" + users + "]";
+	}
+
+	public List<Application> getApplications() {
+		return applications;
+	}
+
+	public void setApplications(List<Application> applications) {
+		this.applications = applications;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public Technology(int id, String name, String link, List<Application> applications, List<User> users) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.link = link;
+		this.applications = applications;
+		this.users = users;
+	}
+
+	public Technology(String name, String link, List<Application> applications, List<User> users) {
+		super();
+		this.name = name;
+		this.link = link;
+		this.applications = applications;
+		this.users = users;
 	}
 
 }

@@ -84,7 +84,51 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", applications=" + applications + ", technologies=" + technologies + "]";
+	}
+
+
+	public List<Application> getApplications() {
+		return applications;
+	}
+
+
+	public void setApplications(List<Application> applications) {
+		this.applications = applications;
+	}
+
+
+	public List<Technology> getTechnologies() {
+		return technologies;
+	}
+
+
+	public void setTechnologies(List<Technology> technologies) {
+		this.technologies = technologies;
+	}
+
+
+	public User(int id, String firstName, String lastName, String email, List<Application> applications,
+			List<Technology> technologies) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.applications = applications;
+		this.technologies = technologies;
+	}
+
+
+	public User(String firstName, String lastName, String email, List<Application> applications,
+			List<Technology> technologies) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.applications = applications;
+		this.technologies = technologies;
 	}
 	
 }

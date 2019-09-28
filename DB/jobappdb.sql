@@ -93,11 +93,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `technology_has_user`
+-- Table `technology_user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `technology_has_user` ;
+DROP TABLE IF EXISTS `technology_user` ;
 
-CREATE TABLE IF NOT EXISTS `technology_has_user` (
+CREATE TABLE IF NOT EXISTS `technology_user` (
   `technology_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`technology_id`, `user_id`),
@@ -170,11 +170,11 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `technology_has_user`
+-- Data for table `technology_user`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobappdb`;
-INSERT INTO `technology_has_user` (`technology_id`, `user_id`) VALUES (1, 1);
+INSERT INTO `technology_user` (`technology_id`, `user_id`) VALUES (1, 1);
 
 COMMIT;
 
