@@ -107,7 +107,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobappdb`;
-INSERT INTO `job_Application` (`id`, `title`, `link`, `date_Apply`, `date_Interview`, `contact_Name`, `contact_Notes`, `additional_Notes`, `status`, `user_id`) VALUES (1, 'Example Job Title', 'www.google.com', NULL, NULL, 'Jimmy John', NULL, NULL, NULL, 1);
+INSERT INTO `job_Application` (`id`, `title`, `link`, `date_Apply`, `date_Interview`, `contact_Name`, `contact_Notes`, `additional_Notes`, `status`, `user_id`) VALUES (1, 'Example Job Title', 'www.google.com', '2019-09-21', NULL, 'Jimmy John', NULL, NULL, NULL, 1);
 INSERT INTO `job_Application` (`id`, `title`, `link`, `date_Apply`, `date_Interview`, `contact_Name`, `contact_Notes`, `additional_Notes`, `status`, `user_id`) VALUES (2, 'Example 2 Job Title', 'www.bing.com', '2019-09-20', '2019-09-21', NULL, NULL, NULL, NULL, 1);
 
 COMMIT;

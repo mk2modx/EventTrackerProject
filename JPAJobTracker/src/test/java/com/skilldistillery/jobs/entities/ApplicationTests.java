@@ -18,7 +18,8 @@ class ApplicationTests {
 	private EntityManager em;
 	
 	private Application app;
-	
+	private User user;
+	private Technology tech;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,6 +36,8 @@ class ApplicationTests {
 		em = emf.createEntityManager();
 		
 		app = em.find(Application.class, 1);
+		user = em.find(User.class, 1);
+		tech = em.find(Technology.class, 1);
 		
 	}
 
@@ -42,11 +45,18 @@ class ApplicationTests {
 	void tearDown() throws Exception {
 		em.close();
 		app = null;
+		user = null;
+		tech = null;
 	}
 
 	@Test
 	void test() {
 		assertNotNull(app);
+	}
+	@Test
+	void test2() {
+		assertEquals("Java",tech.getName());
+		assertEquals("Mark",user.getFirstName());
 	}
 
 }
