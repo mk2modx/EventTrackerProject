@@ -20,13 +20,15 @@ http://34.218.203.197:8080/JobTracker/api/users
 This application's GET/DELETE operations can be accessed using these URL's and the Json POST/PUT operations can be used on Postman.
 
 ### !! Change id #'s  and keywords as needed on example URL!!
-* GET / find applications by keyword
+* GET / find applications by keyword http://34.218.203.197:8080/JobTracker/api/applications/search/java
 
 * GET / show all applications http://34.218.203.197:8080/JobTracker/api/applications
-* GET / show all applications from user id http://34.218.203.197:8080/JobTracker/api/applications/1  <-- (example id# (1))
+* GET / show all applications from user id
+http://34.218.203.197:8080/JobTracker/api/applications/1  <-- (example id# (1))
 * POST / add application to user by id http://34.218.203.197:8080/JobTracker/api/applications/1
 
-* PUT / update application on user by id with application id http://34.218.203.197:8080/JobTracker/api/1/applications/9  <-- (example id# (1) & (9))
+* PUT / update application on user by id with application id
+http://34.218.203.197:8080/JobTracker/api/1/applications/9  <-- (example id# (1) & (9))
 
 * DELETE / delete application on user by id with application id http://34.218.203.197:8080/JobTracker/api/1/applications/9
 
