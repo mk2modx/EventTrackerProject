@@ -21,6 +21,13 @@ public class ApplicationServiceImpl implements ApplicationService {
 	private UserRepository userepo;
 
 	@Override
+	public List<Application> findAllApplications() {
+
+		return repo.findAll();
+
+	}
+
+	@Override
 	public List<Application> findByUserId(Integer id) {
 		return repo.findByUserId(id);
 	}
@@ -54,20 +61,26 @@ public class ApplicationServiceImpl implements ApplicationService {
 			actualApp.setContactNotes(application.getContactNotes());
 			actualApp.setAdditionalNotes(application.getAdditionalNotes());
 			actualApp.setStatus(application.getStatus());
-			
+
 			repo.saveAndFlush(actualApp);
 		}
 
 		return application;
 
 	}
-	
+
 	@Override
 	public Application deleteApplicationOnUser(Integer userId, Integer appId) {
-		
+
 		repo.deleteById(appId);
-		
+
 		return null;
+
+	}
+	
+	@Override
+	public List<Application> findByTitleContaining(String title){
+		return repo.findByTitleContaining(title);
 		
 	}
 }

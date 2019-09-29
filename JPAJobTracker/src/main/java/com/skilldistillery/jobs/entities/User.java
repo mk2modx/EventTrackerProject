@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 
@@ -22,10 +24,10 @@ public class User {
 	private String lastName;
 	
 	private String email;
-
+	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private List<Application> applications;
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy="users")
 	private List <Technology>technologies;
 

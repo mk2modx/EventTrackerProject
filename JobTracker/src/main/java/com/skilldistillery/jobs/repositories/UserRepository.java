@@ -10,5 +10,5 @@ import com.skilldistillery.jobs.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-	
+
 }

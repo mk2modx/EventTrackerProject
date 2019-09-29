@@ -10,4 +10,6 @@ import com.skilldistillery.jobs.entities.Technology;
 public interface ApplicationRepository extends JpaRepository<Application, Integer> {
 
 	List<Application> findByUserId(Integer id);
+	
+	List<Application> findByTitleContaining(String title);
 }

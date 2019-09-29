@@ -18,38 +18,49 @@ import com.skilldistillery.jobs.services.ApplicationService;
 @RestController
 @RequestMapping("api")
 public class ApplicationController {
-	
-	@Autowired 
+
+	@Autowired
 	ApplicationService appsvc;
-	
+
 	@GetMapping("ping")
 	public String ping() {
 		return "pong\n";
 	}
-	
+
+	@GetMapping("applications")
+	public List<Application> findAllApplications() {
+		return appsvc.findAllApplications();
+	}
+
 	@GetMapping("applications/{id}")
 	public List<Application> showApplicationsByUserId(@PathVariable int id) { // user provided
 		return appsvc.findByUserId(id);
 	}
+
 	@PostMapping("applications/{id}")
-	public Application createApplicationOnUser(@PathVariable("id") Integer id,@RequestBody Application application) {
-		
-		
+	public Application createApplicationOnUser(@PathVariable("id") Integer id, @RequestBody Application application) {
+
 		return appsvc.createApplicationtOnUser(id, application);
-		
+
 	}
+
 	@PutMapping("{uId}/applications/{aId}")
-	public Application updateApplicationOnUser(@PathVariable("uId") Integer userId, @PathVariable("aId") Integer appId, @RequestBody Application application) {
+	public Application updateApplicationOnUser(@PathVariable("uId") Integer userId, @PathVariable("aId") Integer appId,
+			@RequestBody Application application) {
 		return appsvc.updateApplicationOnUser(userId, appId, application);
-		
+
 	}
-	
+
 	@DeleteMapping("{uId}/applications/{aId}")
 	public void deleteApplicationOnUser(@PathVariable("uId") Integer userId, @PathVariable("aId") Integer appId) {
-		
-		appsvc.deleteApplicationOnUser(userId, appId);
-		
 
-}
+		appsvc.deleteApplicationOnUser(userId, appId);
+
+	}
+
+	@GetMapping("applications/search/{keyword}")
+	public List<Application> getApplicationsByKeyword(@PathVariable("keyword") String word){
+		return appsvc.findByTitleContaining(word);
+	}
 	
 }

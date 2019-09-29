@@ -23,7 +23,7 @@ public class Technology {
 	private String name;
 
 	private String link;
-	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "job_application_technology", joinColumns = @JoinColumn(name = "technology_id"), inverseJoinColumns = @JoinColumn(name = "job_application_id"))
 	private List<Application> applications;
