@@ -10,5 +10,6 @@ public interface UserService {
 	User createUser(User user);
 	User updateUserById(Integer id, User user);
 	User deleteUserById(Integer id);
+	List<User> findByCohortContaining(String cohort);
 
 }

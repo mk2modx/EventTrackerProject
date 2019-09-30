@@ -2,6 +2,9 @@ package com.skilldistillery.jobs.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,9 +41,24 @@ public class ApplicationController {
 	}
 
 	@PostMapping("applications/{id}")
-	public Application createApplicationOnUser(@PathVariable("id") Integer id, @RequestBody Application application) {
+	public Application createApplicationOnUser(@PathVariable("id") Integer id, @RequestBody Application application,
+			HttpServletRequest request, HttpServletResponse response) {
 
-		return appsvc.createApplicationtOnUser(id, application);
+		try {
+			Application app = appsvc.createApplicationtOnUser(id, application);
+			response.setStatus(201);
+			StringBuffer url = request.getRequestURL();
+			url.append("/");
+			url.append(app.getId());
+			response.setHeader("Location", url.toString());
+
+		} catch (Exception e) {
+			response.setStatus(400);
+			application = null;
+			e.printStackTrace();
+		}
+
+		return application;
 
 	}
 
@@ -59,8 +77,8 @@ public class ApplicationController {
 	}
 
 	@GetMapping("applications/search/{keyword}")
-	public List<Application> getApplicationsByKeyword(@PathVariable("keyword") String word){
+	public List<Application> getApplicationsByKeyword(@PathVariable("keyword") String word) {
 		return appsvc.findByTitleContaining(word);
 	}
-	
+
 }

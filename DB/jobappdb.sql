@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `first_name` VARCHAR(200) NULL,
   `last_name` VARCHAR(200) NULL,
   `email` VARCHAR(200) NULL,
+  `cohort` VARCHAR(100) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -131,8 +132,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobappdb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`) VALUES (1, 'Mark', 'Agbayani', 'marxo2aych@gmail.com');
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`) VALUES (2, 'Test', 'Tester', NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `cohort`) VALUES (1, 'Mark', 'Agbayani', 'marxo2aych@gmail.com', 'SD22');
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `cohort`) VALUES (2, 'Test', 'Tester', 'test@aol.com', 'SD1');
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `cohort`) VALUES (3, 'Dude', 'Dude', 'dude@dude.com', 'SD2');
 
 COMMIT;
 

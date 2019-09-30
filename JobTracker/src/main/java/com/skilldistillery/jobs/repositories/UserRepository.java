@@ -10,5 +10,7 @@ import com.skilldistillery.jobs.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+List<User> findByCohortContaining(String string);
+
 
 }

@@ -52,5 +52,8 @@ public class UserController {
 		public User deleteUser(@PathVariable Integer id) {
 			return usersvc.deleteUserById(id);
 	}
-	
+	@GetMapping("users/search/{keyword}")
+	public List<User> getUsersByKeyword(@PathVariable("keyword") String word){
+		return usersvc.findByCohortContaining(word);
+	}
 }

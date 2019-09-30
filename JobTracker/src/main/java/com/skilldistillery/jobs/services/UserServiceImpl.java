@@ -57,6 +57,7 @@ public class UserServiceImpl implements UserService {
 			updateUser.setFirstName(user.getFirstName());
 			updateUser.setLastName(user.getLastName());
 			updateUser.setEmail(user.getEmail());
+			updateUser.setCohort(user.getCohort());
 			repo.saveAndFlush(updateUser);
 		}
 		
@@ -70,5 +71,8 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 	
-	
+	@Override
+	public List <User> findByCohortContaining(String cohort){
+		return repo.findByCohortContaining(cohort);
+	}
 }
