@@ -36,6 +36,8 @@ http://34.218.203.197:8080/JobTracker/api/1/applications/9  <-- (example id# (1)
 
 * GET / find user by id http://34.218.203.197:8080/JobTracker/api/users/1
 
+* GET / find users by cohort http://34.218.203.197:8080/JobTracker/api/users/search/SD22
+
 * POST / create user http://34.218.203.197:8080/JobTracker/api/users/create
 
 * PUT / update user by id http://34.218.203.197:8080/JobTracker/api/users/1
