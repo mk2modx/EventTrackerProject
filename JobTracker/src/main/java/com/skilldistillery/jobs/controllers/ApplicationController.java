@@ -30,6 +30,10 @@ public class ApplicationController {
 		return "pong\n";
 	}
 
+	@GetMapping("application/{id}")
+	public Application findApplicationById(@PathVariable("id") Integer userId) {
+		return appsvc.findApplicationById(userId);
+	}
 	@GetMapping("applications")
 	public List<Application> findAllApplications() {
 		return appsvc.findAllApplications();

@@ -21,6 +21,15 @@ public class ApplicationServiceImpl implements ApplicationService {
 	private UserRepository userepo;
 
 	@Override
+	public Application findApplicationById(Integer id) {
+		Optional <Application> app = repo.findById(id);
+		if(app.isPresent()) {
+			app.get();
+		}
+		
+		return app.get();
+	}
+	@Override
 	public List<Application> findAllApplications() {
 
 		return repo.findAll();

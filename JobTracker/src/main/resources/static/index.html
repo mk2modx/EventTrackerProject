@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REST Job Tracker</title>
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+  <h1>Welcome to REST Job Tracker</h1>
+<hr>
+<h2>Create Job application on a User</h2>
+<form name='appcreateForm'>
+		<input type='text' name='user' placeHolder='user Id'/> 
+		<input type='text' name='title' placeHolder='title'/> 
+	<input type='text' name='link' placeHolder='link'/> 
+	<input type='text' name='contactName' placeHolder='contact name'/> 
+		<input type='text' name='contactNotes' placeHolder='contact notes'/>
+		<input type='text' name='additionalNotes' placeHolder='additional notes'/> <br> 
+		<input type='text' name='status' placeHolder=' status'/> <br> 
+			 <input type='submit' name='submit' value='submit' />
+	</form>
+<hr>
+<h2>Update Job application on a User</h2>
+<form name="updateappUser">
+    <input type="number" name="userId" placeHolder='user id'>
+    <input type="number" name="appId" placeHolder='application id'>
+    <button name="lookup">Update Application with User Id and Application Id</button>
+  </form>
+<br><br>
+<form name='updateAppForm'>
+		
+		<input type='text' name='title' placeHolder='title'/> 
+	<input type='text' name='link' placeHolder='link'/> 
+	<input type='text' name='contactName' placeHolder='contact name'/> 
+		<input type='text' name='contactNotes' placeHolder='contact notes'/>
+		<input type='text' name='additionalNotes' placeHolder='additional notes'/> <br> 
+		<input type='text' name='status' placeHolder=' status'/> <br> 
+			 <input type='submit' name='submit' value='submit' />
+	</form>
+<hr>
+  <form name="filmForm">
+    <input type="number" name="userId">
+    <button name="lookup">Get Applications by User Id</button>
+  </form>
+  <div id="output">
+    <div id="userData"></div>
+    <div id="appData"></div>
+  </div>
+
+</body>
+</html>
