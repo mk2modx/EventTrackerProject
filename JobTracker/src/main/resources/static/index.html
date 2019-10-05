@@ -38,14 +38,29 @@
 			 <input type='submit' name='submit' value='submit' />
 	</form>
 <hr>
+<h2>Find all applications by User</h2>
   <form name="filmForm">
     <input type="number" name="userId">
     <button name="lookup">Get Applications by User Id</button>
   </form>
+  <br>
+  <h2>Delete application from User</h2>
+  <form name="deleteappUser">
+    <input type="number" name="userId" placeHolder='user id'>
+    <input type="number" name="appId" placeHolder='application id'>
+    <button name="lookup">Delete Application with User Id and Application Id</button>
+  </form>
+  <hr>
+  <h2>Search all applications by Keyword<h2>
+ <form name="searchUsa">
+    <input type="text" name="searchKey">
+    <button name="lookup">Search All</button>
+  </form>
+  
   <div id="output">
     <div id="userData"></div>
     <div id="appData"></div>
   </div>
-
+<hr>
 </body>
 </html>

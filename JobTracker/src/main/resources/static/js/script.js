@@ -3,9 +3,22 @@ window.addEventListener('load', function(e) {
   init();
   addAppForm();
   updateApp();
-  
-  
+  wordInit();
+  deleteApp();
 });
+function wordInit() {
+	  document.searchUsa.lookup.addEventListener('click', function(event) {
+	    event.preventDefault();
+	    var searchKey = document.searchUsa.searchKey.value;
+	    if (searchKey !== null) {
+	      
+	    searchByKeyword(searchKey);
+
+	    }
+	  })
+	}
+
+
 
 function init() {
   document.filmForm.lookup.addEventListener('click', function(event) {
@@ -13,6 +26,8 @@ function init() {
     var userId = document.filmForm.userId.value;
     if (!isNaN(userId) && userId > 0) {
       getAppsByUserId(userId);
+    
+
     }
   })
 }
@@ -28,6 +43,18 @@ function updateApp() {
 	    }
 	  })
 	}
+function deleteApp() {
+	document.deleteappUser.lookup.addEventListener('click', function(event) {
+		event.preventDefault();
+		var userId = document.deleteappUser.userId.value;
+		var appId = document.deleteappUser.appId.value;
+		if (!isNaN(userId) && userId > 0) {
+			deleteAppActual(userId, appId);
+			console.log(userId);
+			console.log(appId);
+		}
+	})
+}
 function addAppForm() {
 	document.appcreateForm.submit.addEventListener('click', function(event) {
 		event.preventDefault();
@@ -167,15 +194,8 @@ function getAppsByUserId(userId) {
 	}
 	};
 	xhr.send(null);
-	
-  // TODO:
-  // * Use XMLHttpRequest to perform a GET request to "api/films/"
-  //   with the filmId appended.
-  // * On success, if a response was received parse the film data
-  //   and pass the film object to displayFilm().
-  // * On failure, or if no response text was received, put "Film not found" 
-  //   in the filmData div.
 }
+	
 
 function displayApps(apps) {
 	console.log(apps);
@@ -204,4 +224,40 @@ function displayApps(apps) {
   // * Create and append elements to the data div to display:
   // * Film title (h1) and description (blockquote).
   // * Rating, release year, and length as an unordered list.
+}
+
+function searchByKeyword(searchKey){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'http://localhost:8090/api/applications/search/'+searchKey, true);
+	xhr.onreadystatechange = function() {
+	  console.log(xhr.readyState + " " + xhr.status + " " + xhr.responseText);
+	if ( xhr.readyState === 4) {
+	  if ( xhr.status < 400){
+	    console.log('Success');
+	    	var found = JSON.parse(xhr.responseText); //turn string to object
+	    	displayApps(found);
+	    	
+	  } else {
+	    console.log('Failure');
+	  }
+	}
+	};
+	xhr.send(null);
+}
+
+function deleteAppActual(userId, appId){
+	var xhr = new XMLHttpRequest();
+	xhr.open('DELETE', 'http://localhost:8090/api/'+userId+'/applications/'+appId, true);
+	xhr.onreadystatechange = function() {
+	  console.log(xhr.readyState + " " + xhr.status + " " + xhr.responseText);
+	if ( xhr.readyState === 4) {
+	  if ( xhr.status < 400){
+	    console.log('Success');
+	    	
+	  } else {
+	    console.log('Failure');
+	  }
+	}
+	};
+	xhr.send(null);
 }
