@@ -135,6 +135,7 @@ USE `jobappdb`;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `cohort`) VALUES (1, 'Mark', 'Agbayani', 'marxo2aych@gmail.com', 'SD22');
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `cohort`) VALUES (2, 'Test', 'Tester', 'test@aol.com', 'SD1');
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `cohort`) VALUES (3, 'Dude', 'Dude', 'dude@dude.com', 'SD2');
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `cohort`) VALUES (4, 'Mike', 'Jones', 'mjones@outlook.com', 'SD22');
 
 COMMIT;
 
@@ -144,8 +145,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobappdb`;
-INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (1, 'Example Job Title', 'www.google.com', '2019-09-21', NULL, 'Jimmy John', NULL, NULL, NULL, 1);
-INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (2, 'Example 2 Job Title', 'www.bing.com', '2019-09-20', '2019-09-21', NULL, NULL, NULL, NULL, 1);
+INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (1, 'Example Job Title', 'https://www.google.com', '2019-09-21', NULL, 'Jimmy John', NULL, NULL, NULL, 1);
+INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (2, 'Example 2 Job Title', 'https://www.bing.com', '2019-09-20', '2019-09-21', NULL, NULL, NULL, NULL, 1);
 INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (3, 'Full Stack Java Developer', 'https://www.google.com/search?sxsrf=ACYBGNSZv4VGauRS6Hag2ujIzgYw39ZDxw:1569692083929&ei=s5mPXbutONfT-wTV8quIDA&q=java+jobs+colorado+springs+entry+level&oq=java+jobs+colorado+springs+entry+level&gs_l=psy-ab.3..33i22i29i30l10.6797.10163..10380...0.0..0.141.1487.0j12......0....1..gws-wiz.tt-lnTlgSDI&uact=5&ibp=htl;jobs&sa=X&ved=2ahUKEwj4z_7dhvTkAhUMsp4KHf1bAZoQiYsCKAB6BAgJEAM#fpstate=tldetail&htidocid=Ju_6pgOePhfryzbPAAAAAA%3D%3D&htivrt=jobs', NULL, NULL, NULL, NULL, NULL, NULL, 2);
 INSERT INTO `job_application` (`id`, `title`, `link`, `date_apply`, `date_interview`, `contact_name`, `contact_notes`, `additional_notes`, `status`, `user_id`) VALUES (4, 'Entry Level Software Engineer', 'https://www.google.com/search?sxsrf=ACYBGNSZv4VGauRS6Hag2ujIzgYw39ZDxw:1569692083929&ei=s5mPXbutONfT-wTV8quIDA&q=java+jobs+colorado+springs+entry+level&oq=java+jobs+colorado+springs+entry+level&gs_l=psy-ab.3..33i22i29i30l10.6797.10163..10380...0.0..0.141.1487.0j12......0....1..gws-wiz.tt-lnTlgSDI&uact=5&ibp=htl;jobs&sa=X&ved=2ahUKEwj4z_7dhvTkAhUMsp4KHf1bAZoQiYsCKAB6BAgJEAM#fpstate=tldetail&htidocid=KLdF-foxvXyTmuNhAAAAAA%3D%3D&htivrt=jobs', NULL, NULL, NULL, NULL, NULL, NULL, 2);
 
