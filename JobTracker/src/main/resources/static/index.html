@@ -2,13 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = device-width, initial-scale = 1">
 <title>REST Job Tracker</title>
 <script type="text/javascript" src="js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
 </head>
 <body>
-  <h1>Welcome to REST Job Tracker</h1>
-<hr>
-<h2>Create Job application on a User</h2>
+<div class="jumbotron" >
+
+<h3 class="text-center">Welcome to REST Job Tracker</h3>
+</div>
+
+
+<div class="container">
+<div class="row">
+
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+<h6 class="text-left">#1 : Create Application using User ID</h6>
 <form name='appcreateForm'>
 		<input type='text' name='user' placeHolder='user Id'/> 
 		<input type='text' name='title' placeHolder='title'/> 
@@ -17,16 +29,33 @@
 		<input type='text' name='contactNotes' placeHolder='contact notes'/>
 		<input type='text' name='additionalNotes' placeHolder='additional notes'/> <br> 
 		<input type='text' name='status' placeHolder=' status'/> <br> 
-			 <input type='submit' name='submit' value='submit' />
+			 <input type='submit' class="btn btn-success btn-sm" name='submit' value='submit' />
 	</form>
-<hr>
-<h2>Update Job application on a User</h2>
+	<br>
+	<h6 class="text-left">#3 : All Applications by User</h6>
+  <form name="filmForm">
+    <input type="number" name="userId" placeHolder='User ID'>
+    <button name="lookup" class="btn btn-success btn-sm">submit</button>
+  </form>
+  <br>
+<h6 class="text-left">#4 : Delete User Application</h6>
+  <form name="deleteappUser">
+    <input type="number" name="userId" placeHolder='user id'>
+    <input type="number" name="appId" placeHolder='application id'>
+    <button name="lookup" class="btn btn-success btn-sm">submit</button>
+  </form>
+  
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+<h6 class="text-left">#2(a) : Update Application on User</h6>
 <form name="updateappUser">
     <input type="number" name="userId" placeHolder='user id'>
     <input type="number" name="appId" placeHolder='application id'>
-    <button name="lookup">Update Application with User Id and Application Id</button>
+    <button name="lookup" class="btn btn-success btn-sm">submit</button>
   </form>
 <br><br>
+<h6 class="text-left">#2(b) :  Application to be updated</h6>
 <form name='updateAppForm'>
 		
 		<input type='text' name='title' placeHolder='title'/> 
@@ -35,32 +64,39 @@
 		<input type='text' name='contactNotes' placeHolder='contact notes'/>
 		<input type='text' name='additionalNotes' placeHolder='additional notes'/> <br> 
 		<input type='text' name='status' placeHolder=' status'/> <br> 
-			 <input type='submit' name='submit' value='submit' />
+			 <input type='submit' class="btn btn-success btn-sm" name='submit' value='submit' />
 	</form>
-<hr>
-<h2>Find all applications by User</h2>
-  <form name="filmForm">
-    <input type="number" name="userId">
-    <button name="lookup">Get Applications by User Id</button>
-  </form>
-  <br>
-  <h2>Delete application from User</h2>
-  <form name="deleteappUser">
-    <input type="number" name="userId" placeHolder='user id'>
-    <input type="number" name="appId" placeHolder='application id'>
-    <button name="lookup">Delete Application with User Id and Application Id</button>
-  </form>
-  <hr>
-  <h2>Search all applications by Keyword<h2>
+	<br>
+	<h6 class="text-left">#5 : Search Applications By Keyword</h6>
  <form name="searchUsa">
-    <input type="text" name="searchKey">
-    <button name="lookup">Search All</button>
+    <input type="text" name="searchKey" placeHolder='keyword'>
+    <button name="lookup" class="btn btn-success btn-sm">submit</button>
   </form>
-  
-  <div id="output">
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+  <div class="jumbotron" id="output">
+   
     <div id="userData"></div>
+    <hr>
     <div id="appData"></div>
   </div>
+
+
+</div>
+
+</div>
+</div>
 <hr>
+
+
+
+  <hr>
+  
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="js/bootstrap/min.js"></script>
+
 </body>
 </html>
