@@ -5,7 +5,7 @@
 
 *** Refactored for Homework Week 13
 -added javascript/html frontend.
-*** Links are for previous version/ Version 1.1 available on GitHub
+*** http://34.218.203.197:8080/JobTracker/
 
 Skill Distillery Homework Week 12
 

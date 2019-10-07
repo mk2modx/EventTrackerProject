@@ -80,7 +80,7 @@ function addAppForm() {
 function populateForm(userId, appId){
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8090/api/application/'+appId, true);
+	xhr.open('GET', 'api/application/'+appId, true);
 	xhr.onreadystatechange = function() {
 	  console.log(xhr.readyState + " " + xhr.status + " " + xhr.responseText);
 	if ( xhr.readyState === 4) {
@@ -115,7 +115,7 @@ function updateAppActual(userId, appId){
 		    var form = event.target.parentElement;
 		
 		    var xhr = new XMLHttpRequest();
-			xhr.open('PUT', 'http://localhost:8090/api/'+userId+'/applications/'+appId, true);
+			xhr.open('PUT', 'api/'+userId+'/applications/'+appId, true);
 
 			xhr.setRequestHeader("Content-type", "application/json"); // Specify JSON request body
 
@@ -151,7 +151,7 @@ function updateAppActual(userId, appId){
 
 function postApp(newApp, id){
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'http://localhost:8090/api/applications/'+id, true);
+	xhr.open('POST', 'api/applications/'+id, true);
 
 	xhr.setRequestHeader("Content-type", "application/json"); // Specify JSON request body
 
@@ -178,7 +178,7 @@ function postApp(newApp, id){
 //USE RELATIVE URL
 function getAppsByUserId(userId) {
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8090/api/applications/'+userId, true);
+	xhr.open('GET', 'api/applications/'+userId, true);
 	xhr.onreadystatechange = function() {
 	  console.log(xhr.readyState + " " + xhr.status + " " + xhr.responseText);
 	if ( xhr.readyState === 4) {
@@ -228,7 +228,7 @@ function displayApps(apps) {
 
 function searchByKeyword(searchKey){
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8090/api/applications/search/'+searchKey, true);
+	xhr.open('GET', 'api/applications/search/'+searchKey, true);
 	xhr.onreadystatechange = function() {
 	  console.log(xhr.readyState + " " + xhr.status + " " + xhr.responseText);
 	if ( xhr.readyState === 4) {
@@ -247,7 +247,7 @@ function searchByKeyword(searchKey){
 
 function deleteAppActual(userId, appId){
 	var xhr = new XMLHttpRequest();
-	xhr.open('DELETE', 'http://localhost:8090/api/'+userId+'/applications/'+appId, true);
+	xhr.open('DELETE', 'api/'+userId+'/applications/'+appId, true);
 	xhr.onreadystatechange = function() {
 	  console.log(xhr.readyState + " " + xhr.status + " " + xhr.responseText);
 	if ( xhr.readyState === 4) {
