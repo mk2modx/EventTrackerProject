@@ -1,5 +1,12 @@
 ## EVENT TRACKER / JOB TRACKER
 
+
+*** Oct 7 2019 Version 1.1
+
+*** Refactored for Homework Week 13
+-added javascript/html frontend.
+*** Links are for previous version/ Version 1.1 available on GitHub
+
 Skill Distillery Homework Week 12
 
 This application uses basic REST API services. I chose to track job applications which is what I'll be doing after attending this school.
