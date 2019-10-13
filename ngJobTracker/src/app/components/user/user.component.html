@@ -31,8 +31,9 @@
       <li> {{user.email}}</li>
       <li> {{user.cohort}}</li>
       <ul >
-        <li>
-
+        <li *ngFor='let job of user.applications'>
+          {{job.title}} <br>
+          <button type="button" class="btn btn-danger" (click)="deleteApp(user.id, job.id)">x</button>
         </li>
       </ul>
     </ul>

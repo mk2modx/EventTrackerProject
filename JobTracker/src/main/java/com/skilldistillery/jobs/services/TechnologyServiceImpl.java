@@ -6,14 +6,22 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.jobs.entities.Application;
 import com.skilldistillery.jobs.entities.Technology;
+import com.skilldistillery.jobs.entities.User;
+import com.skilldistillery.jobs.repositories.ApplicationRepository;
 import com.skilldistillery.jobs.repositories.TechnologyRepository;
+import com.skilldistillery.jobs.repositories.UserRepository;
 
 @Service
 public class TechnologyServiceImpl implements TechnologyService {
 
 	@Autowired
 	TechnologyRepository repo;
+	@Autowired
+	ApplicationRepository apprepo;
+	@Autowired
+	UserRepository userrepo;
 	
 	
 	@Override
@@ -47,6 +55,40 @@ public class TechnologyServiceImpl implements TechnologyService {
 		}
 		return technology;
 	
+	}
+	@Override
+	public Technology createTechnologyOnUser(Technology technology, Integer userid) {
+		if (technology != null) {
+			
+			Optional<User> newuser = userrepo.findById(userid);
+			if(newuser.isPresent()) {
+				
+				Technology tech = repo.saveAndFlush(technology);
+				System.out.println("*************");
+				User useMe = newuser.get();
+				useMe.getTechnologies().add(tech);
+				userrepo.saveAndFlush(useMe);
+			}
+		}
+		return technology;
+		
+	}
+	@Override
+	public Technology createTechnologyOnApp(Technology technology, Integer appid) {
+		if (technology != null) {
+			Optional<Application> app = apprepo.findById(appid);
+			if(app.isPresent()) {
+				System.out.println("$$$$$$$$$$$" + technology.getName());
+				Application app2 = app.get();
+				System.out.println(app2.getTitle());
+				Technology tech = repo.saveAndFlush(technology);
+				tech.getApplications().add(app2);
+				
+				repo.saveAndFlush(tech);
+			}
+		}
+		return technology;
+		
 	}
 	@Override
 	public Technology updateTechnology(int id, Technology technology) {

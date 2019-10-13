@@ -34,4 +34,13 @@ this.userService.create(this.addNewUser).subscribe(
     err => console.error('Observer got an error: ' + err)
   );
   }
-}
+  deleteApp(appId, useId){
+    this.userService.destroy(appId, useId).subscribe(
+      data => {
+        this.reloadUsers();
+      },
+      err => console.error('Observer got an error: ' + err)
+    );
+  }
+
+} // end of Component

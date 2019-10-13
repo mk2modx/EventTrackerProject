@@ -2,6 +2,7 @@ package com.skilldistillery.jobs.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,12 +24,16 @@ public class Technology {
 	private String name;
 
 	private String link;
+	
 	@JsonIgnore
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, 
+			CascadeType.REMOVE})
 	@JoinTable(name = "job_application_technology", joinColumns = @JoinColumn(name = "technology_id"), inverseJoinColumns = @JoinColumn(name = "job_application_id"))
 	private List<Application> applications;
+	
 	@JsonIgnore
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, 
+			CascadeType.REMOVE})
 	@JoinTable(name = "technology_user", joinColumns = @JoinColumn(name = "technology_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
 
@@ -79,21 +84,7 @@ public class Technology {
 				+ ", users=" + users + "]";
 	}
 
-	public List<Application> getApplications() {
-		return applications;
-	}
-
-	public void setApplications(List<Application> applications) {
-		this.applications = applications;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+	
 
 	public Technology(int id, String name, String link, List<Application> applications, List<User> users) {
 		super();
@@ -112,4 +103,21 @@ public class Technology {
 		this.users = users;
 	}
 
+	public List<Application> getApplications() {
+		return applications;
+	}
+
+	public void setApplications(List<Application> applications) {
+		this.applications = applications;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	
 }

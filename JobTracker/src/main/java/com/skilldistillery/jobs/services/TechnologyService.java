@@ -12,5 +12,7 @@ public interface TechnologyService {
 	Technology createTechnology(Technology technology);
 	Technology updateTechnology(int id, Technology technology);
 	Technology deleteTechnology(int id);
+	Technology createTechnologyOnUser(Technology technology, Integer userid);
+	Technology createTechnologyOnApp(Technology technology, Integer appid);
 
 }

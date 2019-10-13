@@ -59,4 +59,13 @@ updateApp(){
   );
   }
 
+deleteApp(id){
+  this.jobService.destroy(id).subscribe(
+    data => {
+      this.reloadList();
+    },
+    err => console.error('Observer got an error: ' + err)
+  );
+}
+
 } // end Component

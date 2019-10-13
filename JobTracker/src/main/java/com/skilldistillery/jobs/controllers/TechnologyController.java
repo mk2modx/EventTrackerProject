@@ -44,6 +44,14 @@ public class TechnologyController {
 		return techsvc.findTechnologyById(id);
 	}
 
+	@PostMapping("technologies/createuser/{userid}")
+	public Technology createTechnologyUser(@RequestBody Technology technology,@PathVariable int userid) {
+		return techsvc.createTechnologyOnUser(technology, userid);
+	}
+	@PostMapping("technologies/createapp/{appid}")
+	public Technology createTechnologyApp(@RequestBody Technology technology, @PathVariable int appid) {
+		return techsvc.createTechnologyOnApp(technology, appid);
+	}
 	@PostMapping("technologies/create")
 	public Technology createTechnology(@RequestBody Technology technology) {
 		return techsvc.createTechnology(technology);

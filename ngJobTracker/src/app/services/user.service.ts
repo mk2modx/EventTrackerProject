@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Jobapp } from '../models/jobapp';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { throwError } from 'rxjs';
 export class UserService {
 
   private baseUrl = 'http://34.218.203.197:8080/JobTracker/';
-  private url = this.baseUrl + 'api/technologies';
+  private url = this.baseUrl + 'api/users';
 
 
 
@@ -45,6 +46,10 @@ export class UserService {
      );
  }
 
+ destroy(userid, appid){
+  return this.http.delete<Jobapp>(this.baseUrl + 'api/' + userid + '/applications/' + appid);
+
+}
 
 
 } // end Service

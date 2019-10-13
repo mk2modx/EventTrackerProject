@@ -45,5 +45,9 @@ update(jobapp: Jobapp, userId, appId) {
 
  return this.http.put<Jobapp>(this.baseUrl + 'api/' + userId + '/applications/' + appId, jobapp);
 }
+destroy(id){
+  return this.http.delete<Jobapp>(this.url + '/' + id);
+
+}
 
 }// end Service
