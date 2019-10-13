@@ -90,4 +90,5 @@ public class ApplicationServiceImpl implements ApplicationService {
 		return repo.findByTitleContaining(title);
 		
 	}
+	
 }

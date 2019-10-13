@@ -29,7 +29,7 @@ public class UserController {
 	public String ping() {
 		return "dong\n";
 	}
-	
+
 
 	@GetMapping("users")
 	public List<User> findallUsers(){

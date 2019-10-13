@@ -3,6 +3,7 @@ package com.skilldistillery.jobs.services;
 import java.util.List;
 
 import com.skilldistillery.jobs.entities.Application;
+import com.skilldistillery.jobs.entities.User;
 
 public interface ApplicationService {
 	List<Application> findByUserId(Integer id);
@@ -12,5 +13,7 @@ public interface ApplicationService {
 	List<Application> findAllApplications();
 	List<Application> findByTitleContaining(String title);
 	Application findApplicationById(Integer id);
+	
+
 
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.jobs.entities.Application;
+import com.skilldistillery.jobs.entities.User;
 import com.skilldistillery.jobs.services.ApplicationService;
 
 @RestController
@@ -32,6 +33,8 @@ public class ApplicationController {
 		return "pong\n";
 	}
 
+
+	
 	@GetMapping("application/{id}")
 	public Application findApplicationById(@PathVariable("id") Integer userId) {
 		return appsvc.findApplicationById(userId);
