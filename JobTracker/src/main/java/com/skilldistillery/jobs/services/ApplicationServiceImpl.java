@@ -22,12 +22,10 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Override
 	public Application findApplicationById(Integer id) {
-		Optional <Application> app = repo.findById(id);
-		if(app.isPresent()) {
-			app.get();
-		}
+		Application app = repo.findByAppId(id);
 		
-		return app.get();
+		
+		return app;
 	}
 	@Override
 	public List<Application> findAllApplications() {

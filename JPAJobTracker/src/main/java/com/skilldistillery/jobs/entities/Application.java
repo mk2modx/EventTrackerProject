@@ -40,7 +40,7 @@ public class Application {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-	@JsonIgnore
+	
 	@ManyToMany(mappedBy="applications")
 	private List <Technology>technologies;
 

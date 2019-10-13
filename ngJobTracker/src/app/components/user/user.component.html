@@ -1,0 +1,43 @@
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <h3> ONE</h3>
+
+
+      <h4>Add User</h4>
+      <div>
+        <form>
+          <input type="text" name="firstname" placeholder=" First Name" [(ngModel)]="addNewUser.firstName" /><br />
+          <input type="text" name="lastname" placeholder="Last Name" [(ngModel)]="addNewUser.lastName" /><br />
+          <input type="text" name="email" placeholder="Email" [(ngModel)]="addNewUser.email" /><br />
+          <input type="text" name="cohort" placeholder="Cohort" [(ngModel)]="addNewUser.cohort" /><br />
+          <button (click)='addUser()'>  Add</button>
+          <br>
+
+        </form>
+      </div>
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+  <h4> All users</h4>
+  <tr *ngFor='let user of users'>
+      <ul>
+      <li>{{user.id}}</li>
+      <li> {{user.firstName}} {{user.lastName}}</li>
+      <li> {{user.email}}</li>
+      <li> {{user.cohort}}</li>
+      <ul >
+        <li>
+
+        </li>
+      </ul>
+    </ul>
+    </tr>
+</div>
+
+</div>
+</div>

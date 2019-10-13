@@ -1,0 +1,94 @@
+
+<div class="container">
+    <div class="row">
+
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+
+<h4>Add Application to user</h4>
+      <div>
+        <form>
+          <input type="number" name="id" placeholder=" User ID" [(ngModel)]="userId" /><br />
+          <input type="text" name="title" placeholder="Title" [(ngModel)]="newJob.title" /><br />
+          <input type="text" name="link" placeholder="Link" [(ngModel)]="newJob.link" /><br />
+          <input type="text" name="contactName" placeholder="Contact Name" [(ngModel)]="newJob.contactName" /><br />
+          <input type="text" name="contactNotes" placeholder="ContactNotes" [(ngModel)]="newJob.contactNotes" /><br />
+          <input type="text" name="status" placeholder="Status" [(ngModel)]="newJob.status" /><br />
+          <input type="text" name="additionalNotes" placeholder="Additional Notes" [(ngModel)]="newJob.additionalNotes" /><br />
+          <button (click)='addApp()'>  Add</button>
+          <br>
+
+        </form>
+      </div>
+
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+  <h3> Update</h3>
+
+  <div>
+
+      <form>
+       Application ID : <br><input type="number" name="appUpdate" placeholder="Application ID" [(ngModel)]="appId" /><br />
+       User ID : <br><input type="number" name="userUpdate" placeholder="User ID" [(ngModel)]="userId" /><br />
+       <input type="submit" value="Update Application" (click)="submitUpdate()" />
+
+     </form>
+    </div>
+    <div >
+        <h4>Update Form</h4>
+        <form>
+            <input type="text" name="title" placeholder="Title" [(ngModel)]="editJob.title" /><br />
+            <input type="text" name="link" placeholder="Link" [(ngModel)]="editJob.link" /><br />
+            <input type="text" name="contactName" placeholder="Contact Name" [(ngModel)]="editJob.contactName" /><br />
+            <input type="text" name="contactNotes" placeholder="ContactNotes" [(ngModel)]="editJob.contactNotes" /><br />
+            <input type="text" name="status" placeholder="Status" [(ngModel)]="editJob.status" /><br />
+            <input type="text" name="additionalNotes" placeholder="Additional Notes" [(ngModel)]="editJob.additionalNotes" /><br />
+            <button (click)='updateApp()'>  Update</button>
+            <br>
+
+          </form>
+    </div>
+
+
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+  <tbody>
+    <h5>All Jobs
+    </h5>
+    <tr *ngFor='let job of jobs'>
+      <ul>
+      <li>{{job.id}}</li>
+      <li> <a href="{{job.link}}" >{{job.title}}</a></li>
+      <li> {{job.status}}</li>
+      <li> {{job.contactName}}</li>
+      <li> {{job.contactNotes}}</li>
+      <li> {{job.additionalNotes}}</li>
+      <ul >
+        <li *ngFor='let tech of job.technologies'>
+          {{tech.name}}
+        </li>
+      </ul>
+    </ul>
+    </tr>
+<tr>
+  <td></td>
+
+</tr>
+
+
+
+
+
+  </tbody>
+
+
+  </div>
+</div>
+</div>
+
+<div>
+
+</div>
