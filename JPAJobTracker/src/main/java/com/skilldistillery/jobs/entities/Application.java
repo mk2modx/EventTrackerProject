@@ -41,7 +41,7 @@ public class Application {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	@ManyToMany(mappedBy="applications")
+	@ManyToMany(mappedBy="application")
 	private List <Technology>technologies;
 
 	public int getId() {

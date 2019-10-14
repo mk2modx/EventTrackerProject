@@ -26,16 +26,11 @@ public class Technology {
 	private String link;
 	
 	@JsonIgnore
-	@ManyToMany(cascade = {CascadeType.PERSIST, 
-			CascadeType.REMOVE})
-	@JoinTable(name = "job_application_technology", joinColumns = @JoinColumn(name = "technology_id"), inverseJoinColumns = @JoinColumn(name = "job_application_id"))
-	private List<Application> applications;
-	
+	@JoinColumn(name="job_application_id")
+	private Application application;
 	@JsonIgnore
-	@ManyToMany(cascade = {CascadeType.PERSIST, 
-			CascadeType.REMOVE})
-	@JoinTable(name = "technology_user", joinColumns = @JoinColumn(name = "technology_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private List<User> users;
+	@JoinColumn(name="user_id")
+	private User user;
 
 	public int getId() {
 		return id;
@@ -78,46 +73,45 @@ public class Technology {
 		this.link = link;
 	}
 
-	@Override
-	public String toString() {
-		return "Technology [id=" + id + ", name=" + name + ", link=" + link + ", applications=" + applications
-				+ ", users=" + users + "]";
+	public Application getApplication() {
+		return application;
 	}
 
-	
+	public void setApplication(Application application) {
+		this.application = application;
+	}
 
-	public Technology(int id, String name, String link, List<Application> applications, List<User> users) {
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "Technology [id=" + id + ", name=" + name + ", link=" + link + ", application=" + application + ", user="
+				+ user + "]";
+	}
+
+	public Technology(int id, String name, String link, Application application, User user) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.link = link;
-		this.applications = applications;
-		this.users = users;
+		this.application = application;
+		this.user = user;
 	}
 
-	public Technology(String name, String link, List<Application> applications, List<User> users) {
+	public Technology(String name, String link, Application application, User user) {
 		super();
 		this.name = name;
 		this.link = link;
-		this.applications = applications;
-		this.users = users;
+		this.application = application;
+		this.user = user;
 	}
 
-	public List<Application> getApplications() {
-		return applications;
-	}
-
-	public void setApplications(List<Application> applications) {
-		this.applications = applications;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
+	
 	
 }

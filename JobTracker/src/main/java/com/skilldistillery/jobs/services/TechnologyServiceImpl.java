@@ -63,11 +63,15 @@ public class TechnologyServiceImpl implements TechnologyService {
 			Optional<User> newuser = userrepo.findById(userid);
 			if(newuser.isPresent()) {
 				
-				Technology tech = repo.saveAndFlush(technology);
-				System.out.println("*************");
+				Technology tech = technology;
+			
 				User useMe = newuser.get();
-				useMe.getTechnologies().add(tech);
-				userrepo.saveAndFlush(useMe);
+			repo.saveAndFlush(tech);
+			tech.setUser(useMe);
+			System.out.println("*************");
+			System.out.println(useMe.getFirstName());
+			System.out.println("*************");
+			repo.saveAndFlush(tech);
 			}
 		}
 		return technology;
@@ -82,7 +86,7 @@ public class TechnologyServiceImpl implements TechnologyService {
 				Application app2 = app.get();
 				System.out.println(app2.getTitle());
 				Technology tech = repo.saveAndFlush(technology);
-				tech.getApplications().add(app2);
+				tech.setApplication(app2);
 				
 				repo.saveAndFlush(tech);
 			}

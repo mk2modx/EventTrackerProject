@@ -28,7 +28,7 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Application> applications;
 	
-	@ManyToMany(mappedBy="users")
+	@ManyToMany(mappedBy="user")
 	private List <Technology>technologies;
 
 	

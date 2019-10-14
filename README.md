@@ -1,10 +1,12 @@
 ## EVENT TRACKER / JOB TRACKER
 
 
+*** Oct 14 2019 Version 1.2
 *** Oct 7 2019 Version 1.1
 
-*** Refactored for Homework Week 13
--added javascript/html frontend.
+*** Refactored for Homework Week 13 & 14
+-added angular frontend. Wk 14 - access through GitHub
+-added javascript/html frontend. Wk 13
 *** http://34.218.203.197:8080/JobTracker/
 
 Skill Distillery Homework Week 12
